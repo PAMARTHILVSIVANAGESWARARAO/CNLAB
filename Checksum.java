@@ -3,10 +3,10 @@ import java.util.*;
 public class Checksum {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.print("Enter length of boolean string: ");
         int n = sc.nextInt();
-
+        
         System.out.print("Enter boolean string: ");
         String data = sc.next();
 
@@ -20,6 +20,8 @@ public class Checksum {
 
         int numBlocks = n / blockSize;
 
+
+        // sivanagu 
         
         String[] blocks = new String[numBlocks];
         for (int i = 0; i < numBlocks; i++)
