@@ -19,6 +19,8 @@ public class Checksum {
         }
 
         int numBlocks = n / blockSize;
+
+        
         String[] blocks = new String[numBlocks];
         for (int i = 0; i < numBlocks; i++)
             blocks[i] = data.substring(i * blockSize, (i + 1) * blockSize);
