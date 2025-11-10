@@ -18,33 +18,21 @@ public class StopAndWaitProtocol {
                     ackReceived = true;
                 } else if (response.equalsIgnoreCase("n")) {
                     System.out.println("Sender : Ack lost for frame " + frameNo + " waiting for timeout...");
-                    try {
-                        Thread.sleep(TIMEOUT);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("Time Out ! Resending frame " + frameNo);
-                } else {
-                    System.out.println("Invalid input please enter y or n");
-                }
+                    try { Thread.sleep(TIMEOUT); } catch (InterruptedException e) {}
+                    System.out.println("Time Out! Resending frame " + frameNo);
+                } else System.out.println("Invalid input. Enter y or n.");
             }
         }
-        System.out.println("All frames sent and acknowledged successfully");
+        System.out.println("All frames sent and acknowledged successfully.");
     }
     private void delay(int ms) {
-        try {
-            Thread.sleep(ms);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        try { Thread.sleep(ms); } catch (InterruptedException e) {}
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter total number of frames to send : ");
         int totalFrames = sc.nextInt();
-        
-        StopAndWaitProtocol sap = new StopAndWaitProtocol(totalFrames);
-        sap.sender(sc);
+        new StopAndWaitProtocol(totalFrames).sender(sc);
         sc.close();
     }
 }
